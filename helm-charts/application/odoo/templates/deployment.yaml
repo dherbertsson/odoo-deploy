@@ -24,7 +24,6 @@ spec:
             claimName: {{ .Values.volumes.addons.claimName }}
       securityContext:
         fsGroup: 101
-        readOnlyRootFilesystem: true
       containers:
         - image: {{ .Values.image }}
           name: odoo
@@ -35,6 +34,8 @@ spec:
               name: {{ .Values.volumes.data.name }}
             - mountPath: "/mnt/extra-addons"
               name: {{ .Values.volumes.addons.name }}
+          securityContext:
+            readOnlyRootFilesystem: true
           env:
             - name: "HOST"
               value: "{{ .Values.global.pooler }}.{{ .Values.global.namespace }}.svc.cluster.local"
