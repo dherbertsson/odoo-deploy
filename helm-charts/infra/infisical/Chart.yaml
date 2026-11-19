@@ -1,0 +1,13 @@
+apiVersion: v2
+name: infisical
+version: 1.0.0
+description: Deploys the core Infisical platform, the Kubernetes Secrets Operator, and the resources needed to set up Infisical
+
+dependencies:
+  - name: infisical-standalone
+    version: 1.12.2
+    repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts/
+
+  - name: secrets-operator
+    version: 0.11.18
+    repository: https://dl.cloudsmith.io/public/infisical/helm-charts/helm/charts/

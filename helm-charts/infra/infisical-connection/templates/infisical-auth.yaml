@@ -1,0 +1,18 @@
+apiVersion: secrets.infisical.com/v1beta1
+kind: InfisicalAuth
+metadata:
+  name: infisical-auth
+  namespace: {{ .Release.namespace }}
+spec:
+  infisicalConnectionRef:
+    name: infisical-connection
+    namespace: {{ .Release.namespace }}
+  method: kubernetes
+  kubernetes:
+    identityIdRef:
+      name: kubernetes-credentials
+      namespace: {{ .Release.namespace }}
+      key: identityId
+    serviceAccountRef:
+      name: infisical-service-account
+      namespace: {{ .Release.namespace }}

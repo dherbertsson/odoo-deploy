@@ -1,0 +1,4 @@
+apiVersion: v1
+name: infisical-service-accounts
+version: 1.0.0
+description: Deploys the service accounts, RBAC, and tokens needed to set up the Kubernetes operator. See https://infisical.com/docs/documentation/guides/kubernetes-operator#create-service-accounts-rbac-and-tokens.
