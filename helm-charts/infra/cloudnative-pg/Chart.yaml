@@ -1,0 +1,9 @@
+apiVersion: v2
+name: cert-manager
+version: 1.0.0
+description: Deploys cert-manager and an ACME Cluster Issuer for Let's Encrypt.
+
+dependencies:
+  - name: cert-manager
+    version: 1.21.3
+    repository: oci://quay.io/jetstack/charts
