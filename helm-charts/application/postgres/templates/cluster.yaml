@@ -1,0 +1,22 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ .Values.cluster.name }} 
+  namespace: {{ .Values.global.namespace }}
+spec:
+  instances: {{ .Values.cluster.replicas }}
+  storage:
+    size: {{ .Values.cluster.storageSize }}
+  bootstrap:
+    initdb:
+      database: {{ .Values.initdb.database }}
+      owner: {{ .Values.initdb.owner }}
+      secret:
+        name: {{ .Values.global.postgres.credentialsSecretManaged }}
+      postInitSQL:
+        - ALTER USER {{ .Values.initdb.owner }} CREATEDB;
+#  plugins:
+#   - name: barman-cloud.cloudnative-pg.io
+#     isWALArchiver: true
+#     parameters:
+#       barmanObjectName: {{ .Values.objectStore.objectStore }}

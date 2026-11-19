@@ -1,0 +1,4 @@
+apiVersion: v1
+name: odoo
+version: 1.0.0
+description: Deploys Odoo itself

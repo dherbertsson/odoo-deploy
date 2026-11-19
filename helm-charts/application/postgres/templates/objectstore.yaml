@@ -1,0 +1,21 @@
+apiVersion: barmancloud.cnpg.io/v1
+kind: ObjectStore
+metadata:
+  name: {{ .Values.objectStore.objectStore }}
+  namespace: {{ .Values.global.namespace }}
+spec:
+  configuration:
+    destinationPath: s3://{{ .Values.objectStore.bucketName }}
+    endpointURL: {{ .Values.objectStore.endpointURL }}
+    s3Credentials:
+      accessKeyId:
+        name: {{ .Values.objectStore.s3CredentialsSecret.managed }}
+        key: ACCESS_KEY_ID
+      secretAccessKey:
+        name: {{ .Values.objectStore.s3CredentialsSecret.managed }}
+        key: ACCESS_SECRET_KEY
+      sseCustomerKey:
+        name: {{ .Values.objectStore.s3CredentialsSecret.managed }}
+        key: SSE_C_KEY
+    wal:
+      compression: gzip

@@ -1,0 +1,34 @@
+postgres:
+  cluster:
+    name: odoo-instance-1-postgres
+    replicas: 3
+    storageSize: 10Gi
+  initdb:
+    database: postgres
+    owner: odoo
+  podMonitor: odoo-instance-1-postgres-pod-monitor
+  pooler:
+    replicas: 3
+  credentialsSecretStatic:
+    name: odoo-instance-1-postgres-creds-static-secret
+    # The source values need to be set after Infisical is set up
+    source:
+      projectSlug: # Add value here
+      environmentSlug: # Add value here
+      secretPath: # Add value here
+  scheduledBackup:
+    name: odoo-instance-1-postgres-backup
+    # Create a backup every hour
+    schedule: 0 0 * * * *
+  objectStore:
+    objectStore: odoo-instance-1-postgres-object-store
+    bucketName: odoo-instance-1
+    endpointURL: # Add endpoint URL here
+    s3CredentialsSecret:
+      static: odoo-instance-1-s3-creds-static-secret
+      managed: odoo-instance-1-s3-creds-managed-secret
+      # The source values need to be set after Infisical is set up
+      source:
+        projectSlug: # Add value here
+        environmentSlug: # Add value here
+        secretPath: # Add value here

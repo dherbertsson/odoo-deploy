@@ -1,0 +1,6 @@
+global:
+  namespace: odoo-instance-1
+  instance: odoo-instance-1
+  postgres:
+    credentialsSecretManaged: odoo-instance-1-postgres-creds-managed-secret
+  pooler: odoo-instance-1-postgres-pooler
