@@ -1,7 +1,7 @@
 apiVersion: v2
 name: odoo-instance-1
 version: 1.0.0
-description: Deploys Odoo itself
+description: Deploys an example Odoo instance
 
 dependencies:
   - name: odoo
