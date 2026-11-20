@@ -10,4 +10,4 @@ victoria-logs-collector:
   podMonitor:
     enabled: true
   remoteWrite:
-    - url: http://vls-victoria-logs-single-server.{{ .Release.Namespace }}.svc.cluster.local.:9428
+    - url: http://vls-victoria-logs-single-server.victoria-logs.svc.cluster.local.:9428
