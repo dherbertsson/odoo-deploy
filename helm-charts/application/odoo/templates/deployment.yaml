@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.global.instance }}
+  name: {{ .Values.global.instance }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: {{ .Values.global.instance }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.global.instance }}
+    spec:
+      volumes:
+        - name: {{ .Values.volumes.data.name }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.volumes.data.claimName }}
+        - name: {{ .Values.volumes.addons.name }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.volumes.addons.claimName }}
+      securityContext:
+        fsGroup: 101
+      containers:
+        - image: {{ .Values.image }}
+          name: odoo
+          ports:
+            - containerPort: 8069
+          volumeMounts:
+            - mountPath: "/var/lib/odoo"
+              name: {{ .Values.volumes.data.name }}
+            - mountPath: "/mnt/extra-addons"
+              name: {{ .Values.volumes.addons.name }}
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+          env:
+            - name: "HOST"
+              value: "{{ .Values.global.pooler }}.{{ .Release.Namespace }}.svc.cluster.local"
+            - name: "PORT"
+              value: "5432"
+            - name: "USER"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.global.postgres.credentialsSecretManaged }}
+                  key: username
+            - name: "POSTGRES_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.global.postgres.credentialsSecretManaged }}
+                  key: password

@@ -1,0 +1,21 @@
+apiVersion: secrets.infisical.com/v1beta1
+kind: InfisicalStaticSecret
+metadata:
+  name: {{ .Values.objectStore.s3CredentialsSecret.static }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  infisicalAuthRef:
+    name: infisical-auth
+    namespace: infisical
+  syncOptions:
+    refreshInterval: 1m
+    instantUpdates: false
+  sources:
+    - projectSlug: {{ required "projectSlug is a required value!" .Values.objectStore.s3CredentialsSecret.source.projectSlug }}
+      environmentSlug: {{ required "environmentSlug is a required value!" .Values.objectStore.s3CredentialsSecret.source.environmentSlug }}
+      secretPath: {{ required "secretPath is a required value!" .Values.objectStore.s3CredentialsSecret.source.secretPath }}
+  targets:
+    - name: {{ .Values.objectStore.s3CredentialsSecret.managed }}
+      namespace: {{ .Release.Namespace }}
+      kind: Secret
+      creationPolicy: Owner

@@ -1,0 +1,13 @@
+victoria-logs-single:
+  server:
+    retentionPeriod: 7d
+    persistentVolume:
+      size: 10Gi
+    serviceMonitor:
+      enabled: true
+
+victoria-logs-collector:
+  podMonitor:
+    enabled: true
+  remoteWrite:
+    - url: http://vls-victoria-logs-single-server.victoria-logs.svc.cluster.local.:9428

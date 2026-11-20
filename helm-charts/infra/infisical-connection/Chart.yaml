@@ -1,0 +1,4 @@
+apiVersion: v1
+name: infisical-connection
+version: 1.0.0
+description: Deploys the InfisicalConnection and InfisicalAuth. See https://infisical.com/docs/documentation/guides/kubernetes-operator#connect-the-operator-to-infisical.

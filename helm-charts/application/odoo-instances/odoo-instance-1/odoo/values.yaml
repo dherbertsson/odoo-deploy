@@ -1,0 +1,16 @@
+odoo:
+  image: odoo:20.0-20261112@sha256:8bcae4c1f895683ee851e19dd3e7d999e81e770defe9015bc9dad8bbf10f2b0d
+  volumes:
+    data:
+      name: odoo-instance-1-data-volume
+      claimName: odoo-instance-1-data-pvc
+      storage: 10Gi
+    addons:
+      name: odoo-instance-1-addons-volume
+      claimName: odoo-instance-1-addons-pvc
+      storage: 4Gi
+  ingress:
+    name: odoo-instance-1-ingress
+    host: # Add the hostname here
+    tlsSecret: odoo-instance-1-ingress-tls-secret
+  service: odoo-instance-1-service

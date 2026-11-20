@@ -1,0 +1,11 @@
+infisical-standalone:
+  image:
+    repository: infisical/infisical
+    tag: "v0.167.10" # Check https://hub.docker.com/r/infisical/infisical/tags for the latest tag
+    pullPolicy: IfNotPresent
+  replicaCount: 2
+
+  ingress:
+    enabled: false
+    nginx:
+      enabled: false
