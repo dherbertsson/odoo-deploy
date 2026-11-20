@@ -1,0 +1,1 @@
+The repo provides Helm charts for deploying Odoo and supporting infrastructure on a Kubernetes cluster. It has been tested on a k3s cluster running on Hetzner, with 1 master node and 4 worker nodes.
