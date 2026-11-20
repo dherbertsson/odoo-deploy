@@ -4,7 +4,7 @@ version: 1.0.0
 description: Deploys VictoriaLogs Single and the VictoriaLogs Collector to collect logs from Kubernetes containers.
 
 dependencies:
-  - name: victoria-logs
+  - name: victoria-logs-single
     version: 0.13.13
     repository: https://victoriametrics.github.io/helm-charts/
 
