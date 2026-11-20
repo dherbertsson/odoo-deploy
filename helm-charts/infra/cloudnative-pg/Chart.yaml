@@ -1,9 +1,12 @@
-apiVersion: v2
-name: cert-manager
+name: cloud-native-pg
 version: 1.0.0
-description: Deploys cert-manager and an ACME Cluster Issuer for Let's Encrypt.
-
+description: Deploys CloudNativePG and the Barman Cloud CNPG-I plugin.
+ 
 dependencies:
-  - name: cert-manager
-    version: 1.21.3
-    repository: oci://quay.io/jetstack/charts
+  - name: cloud-native-pg
+    version: 0.29.2
+    repository: https://cloudnative-pg.github.io/charts
+
+  - name: plugin-barman-cloud
+    version: 0.9.0
+    repository: https://cloudnative-pg.github.io/charts
