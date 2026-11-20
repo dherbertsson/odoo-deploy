@@ -1,7 +1,7 @@
 apiVersion: v2
 name: infisical
 version: 1.0.0
-description: Deploys the core Infisical platform, the Kubernetes Secrets Operator, and the resources needed to set up Infisical
+description: Deploys the core Infisical platform and the Kubernetes Secrets Operator.
 
 dependencies:
   - name: infisical-standalone
