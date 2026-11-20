@@ -2,6 +2,6 @@ apiVersion: secrets.infisical.com/v1beta1
 kind: InfisicalConnection
 metadata:
   name: infisical-connection
-  namespace: {{ .Release.namespace }}
+  namespace: {{ .Release.Namespace }}
 spec:
-  address: http://infisical-infisical-standalone-infisical.{{ .Release.namespace }}.svc.cluster.local:8080
+  address: http://infisical-infisical-standalone-infisical.{{ .Release.Namespace }}.svc.cluster.local:8080

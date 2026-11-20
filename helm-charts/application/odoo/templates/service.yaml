@@ -4,7 +4,7 @@ metadata:
   labels:
     app: {{ .Values.global.instance }}
   name: {{ .Values.service }}
-  namespace: {{ .Release.namespace }}
+  namespace: {{ .Release.Namespace }}
 spec:
   ports:
   - port: 8069

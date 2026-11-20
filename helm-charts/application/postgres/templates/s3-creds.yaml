@@ -2,7 +2,7 @@ apiVersion: secrets.infisical.com/v1beta1
 kind: InfisicalStaticSecret
 metadata:
   name: {{ .Values.objectStore.s3CredentialsSecret.static }}
-  namespace: {{ .Release.namespace }}
+  namespace: {{ .Release.Namespace }}
 spec:
   infisicalAuthRef:
     name: infisical-auth
@@ -16,6 +16,6 @@ spec:
       secretPath: {{ required "secretPath is a required value!" .Values.objectStore.s3CredentialsSecret.source.secretPath }}
   targets:
     - name: {{ .Values.objectStore.s3CredentialsSecret.managed }}
-      namespace: {{ .Release.namespace }}
+      namespace: {{ .Release.Namespace }}
       kind: Secret
       creationPolicy: Owner

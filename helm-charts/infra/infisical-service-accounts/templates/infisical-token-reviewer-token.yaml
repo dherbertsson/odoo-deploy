@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: infisical-token-reviewer-token
-  namespace: {{ .Release.namespace }}
+  namespace: {{ .Release.Namespace }}
   annotations:
     kubernetes.io/service-account.name: infisical-token-reviewer
 type: kubernetes.io/service-account-token
