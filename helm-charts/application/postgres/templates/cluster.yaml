@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: {{ .Values.cluster.name }} 
-  namespace: {{ .Values.global.namespace }}
+  namespace: {{ .Release.namespace }}
 spec:
   instances: {{ .Values.cluster.replicas }}
   storage:

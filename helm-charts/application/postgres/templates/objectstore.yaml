@@ -2,7 +2,7 @@ apiVersion: barmancloud.cnpg.io/v1
 kind: ObjectStore
 metadata:
   name: {{ .Values.objectStore.objectStore }}
-  namespace: {{ .Values.global.namespace }}
+  namespace: {{ .Release.namespace }}
 spec:
   configuration:
     destinationPath: s3://{{ .Values.objectStore.bucketName }}

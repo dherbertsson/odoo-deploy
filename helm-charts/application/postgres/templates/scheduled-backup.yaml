@@ -2,7 +2,7 @@
 # kind: ScheduledBackup
 # metadata:
 #   name: {{ .Values.scheduledBackup.name }}
-#   namespace: {{ .Values.global.namespace }}
+#   namespace: {{ .Release.namespace }}
 # spec:
 #   schedule: {{ .Values.scheduledBackup.schedule }}
 #   backupOwnerReference: self
