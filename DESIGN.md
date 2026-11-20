@@ -36,7 +36,8 @@ odoo-deploy
         |                               # There is currently only one issuer, an ACME cluster issuer
         |                               # for Let's Encrypt.
         |
-        └───cloudnative-pg              # CloudNativePG and the Barman Cloud CNPG-I plugin.
+        └───cloudnative-pg              # CloudNativePG and the Barman Cloud CNPG-I plugin. Note that
+        |                               # scheduled backups currently don't work.
         |
         └───infisical                   # The core Infisical platform and the Kubernetes Secrets Operator.
         |
@@ -69,6 +70,7 @@ odoo-deploy
 3. Install the Odoo chart
 # Future
 There are a number of improvements that should be made, but which I had to skip for now due to the time constraints:
+- Get the Barman Cloud CNPG-I plugin to work for scheduled backups.
 - Use multiple replicas for Odoo. The Odoo pod is right now a single point of failure.
 - Take Odoo file backups in addition to the database backups. Velero could be used for this.
 - Create a self-signed CA with cert-manager and enable TLS within the Kubernetes cluster.
