@@ -1,7 +1,7 @@
 # Install/Upgrade
 ```
 helm dependency update
-helm upgrade --install --wait --namespace infisical --create-namespace -f values.yaml --set authSecret=$(openssl rand -base64 32) --set encryptionKey=$(openssl rand -hex 16) infisical .
+helm upgrade --install --atomic --timeout 5m --namespace infisical --create-namespace -f values.yaml --set authSecret=$(openssl rand -base64 32) --set encryptionKey=$(openssl rand -hex 16) infisical .
 ```
 
 # Uninstall

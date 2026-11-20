@@ -1,0 +1,4 @@
+apiVersion: v1
+name: cert-manager-issuers
+version: 1.0.0
+description: Deploys cert-manager issuers. Currently there is only one, an ACME cluster issuer for Let's Encrypt.

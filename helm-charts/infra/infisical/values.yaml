@@ -5,7 +5,7 @@ infisical-standalone:
     pullPolicy: IfNotPresent
   replicaCount: 2
 
-ingress:
-  enabled: false
-  nginx:
+  ingress:
     enabled: false
+    nginx:
+      enabled: false

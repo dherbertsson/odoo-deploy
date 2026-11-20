@@ -30,7 +30,11 @@ odoo-deploy
     |
     └───infra                           # Charts to deploy supporting infrastructure.
         |
-        └───cert-manager                # cert-manager and a cluster issuer.
+        └───cert-manager                # cert-manager for automatic certificate issuing and renewal.
+        |
+        └───cert-manager-issuers        # Issuers are installed separately from cert-manager itself.
+        |                               # There is currently only one issuer, an ACME cluster issuer
+        |                               # for Let's Encrypt.
         |
         └───cloudnative-pg              # CloudNativePG and the Barman Cloud CNPG-I plugin.
         |

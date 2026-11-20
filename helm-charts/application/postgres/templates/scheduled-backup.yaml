@@ -1,10 +1,10 @@
-# apiVersion: postgresql.cnpg.io/v1
-# kind: ScheduledBackup
-# metadata:
-#   name: {{ .Values.scheduledBackup.name }}
-#   namespace: {{ .Release.Namespace }}
-# spec:
-#   schedule: {{ .Values.scheduledBackup.schedule }}
-#   backupOwnerReference: self
-#   cluster:
-#     name: {{ .Values.cluster.name }}
+#apiVersion: postgresql.cnpg.io/v1
+#kind: ScheduledBackup
+#metadata:
+#  name: {{ .Values.scheduledBackup.name }}
+#  namespace: {{ .Release.Namespace }}
+#spec:
+#  schedule: {{ .Values.scheduledBackup.schedule }}
+#  backupOwnerReference: self
+#  cluster:
+#    name: {{ .Values.cluster.name }}

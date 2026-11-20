@@ -1,16 +1,16 @@
 # Install/Upgrade
 ```
 helm dependency update
-helm upgrade --install --wait --namespace cert-manager --create-namespace -f values.yaml cert-manager .
+helm upgrade --install --atomic --timeout 5m --namespace cloudnative-pg --create-namespace -f values.yaml cloudnative-pg .
 ```
 
 # Uninstall
 ```
-helm uninstall --namespace cert-manager cert-manager
+helm uninstall --namespace cloudnative-pg cloudnative-pg
 ```
 
 # Render templates
 ```
 helm dependency update
-helm template .
+helm template --namespace cloudnative-pg -f values.yaml .
 ```
