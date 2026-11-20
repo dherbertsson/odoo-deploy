@@ -8,7 +8,7 @@ postgres:
     owner: odoo
   podMonitor: odoo-instance-1-postgres-pod-monitor
   pooler:
-    replicas: 3
+    instances: 3
   credentialsSecretStatic:
     name: odoo-instance-1-postgres-creds-static-secret
     # The source values need to be set after Infisical is set up
